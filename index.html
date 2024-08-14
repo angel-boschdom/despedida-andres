@@ -62,7 +62,7 @@
             position: absolute;
             top: 20px;
             right: 20px;
-            font-size: 36px;
+            font-size: 30px;
             cursor: pointer;
             z-index: 10;
             /* Ensure it stays on top */
@@ -249,7 +249,8 @@
             const deltaTime = endTime - startTime;
 
             const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-            const speed = distance / deltaTime;
+            const minSpeed = 0.1;
+            const speed = distance / deltaTime  + minSpeed;
 
             spinAngleStart = Math.min(50, speed * 100); // Cap the max speed for control
             spinTime = 0;
