@@ -13,9 +13,11 @@
             height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
-            background: linear-gradient(to right, #006847 33.33%, #ffffff 33.33%, #ffffff 66.66%, #ce1126 66.66%); /* Mexican flag background */
+            background: linear-gradient(to right, #006847 33.33%, #ffffff 33.33%, #ffffff 66.66%, #ce1126 66.66%);
+            /* Mexican flag background */
             text-align: center;
-            position: relative; /* For positioning the menu */
+            position: relative;
+            /* For positioning the menu */
         }
 
         canvas {
@@ -29,7 +31,7 @@
             align-items: center;
         }
 
-        .controls input{
+        .controls input {
             margin: 5px;
             width: 300px;
             padding: 10px;
@@ -62,7 +64,8 @@
             right: 20px;
             font-size: 24px;
             cursor: pointer;
-            z-index: 10; /* Ensure it stays on top */
+            z-index: 10;
+            /* Ensure it stays on top */
         }
 
         .dropdown-content {
@@ -72,7 +75,7 @@
             top: 30px;
             background-color: #f9f9f9;
             min-width: 300px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
             z-index: 1;
         }
 
@@ -93,7 +96,6 @@
     </style>
 </head>
 <body>
-
     <div class="menu">
         ☰
         <div class="dropdown-content">
@@ -119,6 +121,8 @@
         const ctx = canvas.getContext('2d');
         const spinButton = document.getElementById('spinButton');
         const choicesInput = document.getElementById('choicesInput');
+        const menu = document.querySelector('.menu');
+        const dropdownContent = document.querySelector('.dropdown-content');
 
         let choices = ["Chupito!", "Canción de Mariachi", "Pose de Yoga", "Comodín", "Lo que diga Ángel", "Instagram a una chica", "Reto sorpresa"];
         let startAngle = 0;
@@ -226,7 +230,6 @@
 
         canvas.addEventListener('touchstart', function (e) {
             if (isSpinning) return;
-
             const touch = e.touches[0];
             startX = touch.clientX;
             startY = touch.clientY;
@@ -277,8 +280,23 @@
             rotateWheel();
         });
 
+        // Add event listeners to handle touch events on the menu
+        menu.addEventListener('touchstart', (e) => {
+            dropdownContent.style.display = 'block';
+            // Disable pointer events on canvas when menu is being interacted with
+            canvas.style.pointerEvents = 'none';
+        });
+
+        document.addEventListener('touchend', (e) => {
+            // Check if the touch event is outside the menu
+            if (!menu.contains(e.target)) {
+                dropdownContent.style.display = 'none';
+                // Enable pointer events on canvas when menu interaction ends
+                canvas.style.pointerEvents = 'auto';
+            }
+        });
+
         drawRouletteWheel();
     </script>
-
 </body>
 </html>
