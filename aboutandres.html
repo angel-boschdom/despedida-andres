@@ -42,7 +42,7 @@
             position: absolute;
             top: 20px;
             right: 20px;
-            font-size: 24px;
+            font-size: 36px;
             cursor: pointer;
             z-index: 10; /* Ensure it stays on top */
         }
@@ -120,6 +120,28 @@
         <img src="./assets/andres.png" alt="Andrés">
         <p>Según su <a href="https://www.andresengels.com/">página web</a>, Andrés es un crack.</p>
     </div>
+
+    <script>
+        // Add event listeners to handle touch events on the menu
+        const menu = document.querySelector('.menu');
+        const dropdownContent = document.querySelector('.dropdown-content');
+
+        menu.addEventListener('touchstart', (e) => {
+            dropdownContent.style.display = 'block';
+            // Disable pointer events on other elements when menu is being interacted with
+            document.body.style.pointerEvents = 'none';
+            menu.style.pointerEvents = 'auto';
+        });
+
+        document.addEventListener('touchend', (e) => {
+            // Check if the touch event is outside the menu
+            if (!menu.contains(e.target)) {
+                dropdownContent.style.display = 'none';
+                // Enable pointer events on other elements when menu interaction ends
+                document.body.style.pointerEvents = 'auto';
+            }
+        });
+    </script>
 
 </body>
 </html>

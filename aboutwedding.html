@@ -42,7 +42,7 @@
             position: absolute;
             top: 20px;
             right: 20px;
-            font-size: 24px;
+            font-size: 36px;
             cursor: pointer;
             z-index: 10; /* Ensure it stays on top */
         }
@@ -189,6 +189,24 @@
                 starText.style.opacity = '1'; // Show text with a fade-in effect
                 hiddenText.style.display = 'none'; // Keep the hidden text hidden to avoid duplication
             }, 1500); // Match the duration of the animation
+        });
+
+        // Add event listeners to handle touch events on the menu
+        const menu = document.querySelector('.menu');
+        const dropdownContent = document.querySelector('.dropdown-content');
+        menu.addEventListener('touchstart', (e) => {
+            dropdownContent.style.display = 'block';
+            // Disable pointer events on canvas when menu is being interacted with
+            canvas.style.pointerEvents = 'none';
+        });
+
+        document.addEventListener('touchend', (e) => {
+            // Check if the touch event is outside the menu
+            if (!menu.contains(e.target)) {
+                dropdownContent.style.display = 'none';
+                // Enable pointer events on canvas when menu interaction ends
+                canvas.style.pointerEvents = 'auto';
+            }
         });
     </script>
 
