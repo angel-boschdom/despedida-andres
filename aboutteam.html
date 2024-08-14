@@ -9,13 +9,13 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
             background: linear-gradient(to right, #006847 33.33%, #ffffff 33.33%, #ffffff 66.66%, #ce1126 66.66%); /* Mexican flag background */
             text-align: center;
             position: relative; /* For positioning the menu */
+            padding-top: 60px; /* Add some padding to ensure the first circle is fully visible */
+            overflow-x: hidden; /* Prevent horizontal scrolling */
         }
 
         .controls button {
@@ -98,6 +98,15 @@
             align-items: center;
             justify-content: center;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            margin-bottom: 40px; /* Add some space between the circles */
+        }
+        
+        .circle-container.show {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         .circle-container h1 {
@@ -138,35 +147,68 @@
         </div>
     </div>
 
+    <h1>Equipo Despedida!</h1>
     <div class="circle-container">
-        <h1>Quién es Andrés?</h1>
-        <img src="./assets/andres.png" alt="Andrés">
-        <p>Según su <a href="https://www.andresengels.com/">página web</a>, Andrés es un crack.</p>
-        <!-- Instagram icon link -->
-        <a href="https://www.instagram.com/aaengels/" target="_blank">
+        <h1>Ángel</h1>
+        <img src="./assets/angel.png" alt="Angel">
+        <p>Desarrollo web y entretenimiento.</p>
+        <a href="https://www.instagram.com/angel95gon/" target="_blank">
+            <img src="./assets/instalogo.png" alt="Instagram" class="instagram-icon">
+        </a>
+    </div>
+    <div class="circle-container">
+        <h1>Sergio</h1>
+        <img src="./assets/sergio.png" alt="Sergio">
+        <p>Organización y eventos.</p>
+        <a href="https://www.instagram.com/serg_lex/" target="_blank">
+            <img src="./assets/instalogo.png" alt="Instagram" class="instagram-icon">
+        </a>
+    </div>
+    <div class="circle-container">
+        <h1>Pau</h1>
+        <img src="./assets/pau.png" alt="Pau">
+        <p>Catering y bebida.</p>
+        <a href="https://www.instagram.com/paubelda_/" target="_blank">
+            <img src="./assets/instalogo.png" alt="Instagram" class="instagram-icon">
+        </a>
+    </div>
+    <div class="circle-container">
+        <h1>Adrián</h1>
+        <img src="./assets/adrian.png" alt="Adrian">
+        <p>Transporte y aventuras.</p>
+        <a href="https://www.instagram.com/adrian_gespi/" target="_blank">
+            <img src="./assets/instalogo.png" alt="Instagram" class="instagram-icon">
+        </a>
+    </div>
+    <div class="circle-container">
+        <h1>Dani</h1>
+        <img src="./assets/dani.png" alt="Dani">
+        <p>Correr, nadar, y bicicleta.</p>
+        <a href="https://www.instagram.com/daniolmo/" target="_blank">
             <img src="./assets/instalogo.png" alt="Instagram" class="instagram-icon">
         </a>
     </div>
 
     <script>
-        // Add event listeners to handle touch events on the menu
-        const menu = document.querySelector('.menu');
-        const dropdownContent = document.querySelector('.dropdown-content');
+        document.addEventListener('DOMContentLoaded', function() {
+            const circleContainers = document.querySelectorAll('.circle-container');
 
-        menu.addEventListener('touchstart', (e) => {
-            dropdownContent.style.display = 'block';
-            // Disable pointer events on other elements when menu is being interacted with
-            document.body.style.pointerEvents = 'none';
-            menu.style.pointerEvents = 'auto';
-        });
+            const handleScroll = () => {
+                circleContainers.forEach(container => {
+                    const rect = container.getBoundingClientRect();
+                    if (rect.top < window.innerHeight && rect.bottom > 0) {
+                        container.classList.add('show');
+                    } else {
+                        container.classList.remove('show');
+                    }
+                });
+            };
 
-        document.addEventListener('touchend', (e) => {
-            // Check if the touch event is outside the menu
-            if (!menu.contains(e.target)) {
-                dropdownContent.style.display = 'none';
-                // Enable pointer events on other elements when menu interaction ends
-                document.body.style.pointerEvents = 'auto';
-            }
+            // Trigger on scroll
+            window.addEventListener('scroll', handleScroll);
+
+            // Trigger on page load
+            handleScroll();
         });
     </script>
 
