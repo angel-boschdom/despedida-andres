@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Despedida de Andrés</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #006847 33.33%, #ffffff 33.33%, #ffffff 66.66%, #ce1126 66.66%); /* Mexican flag background */
+            text-align: center;
+            position: relative; /* For positioning the menu */
+        }
+
+        .controls button {
+            margin: 5px;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        img {
+            width: 150px;
+            height: auto;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            border: 5px solid #333;
+        }
+
+        /* Menu styles */
+        .menu {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 10; /* Ensure it stays on top */
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 30px;
+            background-color: #f9f9f9;
+            min-width: 300px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .menu:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Circle container styles */
+        .circle-container {
+            background-color: white;
+            border-radius: 50%;
+            padding: 40px;
+            width: 300px;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        }
+        
+        .circle-container h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        
+        .circle-container p {
+            margin: 0;
+            font-size: 16px;
+        }
+        
+        .circle-container img {
+            margin-bottom: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="menu">
+        ☰
+        <div class="dropdown-content">
+            <a href="./aboutandres.html">Quién es Andrés?</a>
+            <a href="./aboutwedding.html">Por qué se casa?</a>
+            <a href="./index.html">Ruleta de retos!</a>
+            <a href="./shop.html">Tienda</a>
+        </div>
+    </div>
+
+    <div class="circle-container">
+        <h1>Quién es Andrés?</h1>
+        <img src="./assets/andres.png" alt="Andrés">
+        <p>Según su <a href="https://www.andresengels.com/">página web</a>, Andrés es un crack.</p>
+    </div>
+
+</body>
+</html>
