@@ -264,7 +264,7 @@
             const deltaTime = endTime - startTime;
 
             const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-            const minSpeed = 0.1;
+            const minSpeed = 0.3;
             const speed = distance / deltaTime  + minSpeed;
 
             spinAngleStart = Math.min(50, speed * 100); // Cap the max speed for control
