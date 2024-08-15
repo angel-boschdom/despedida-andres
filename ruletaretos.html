@@ -140,7 +140,7 @@
         const menu = document.querySelector('.menu');
         const dropdownContent = document.querySelector('.dropdown-content');
 
-        let choices = ["Chupito!", "Canción de Mariachi", "Pose de Yoga", "Baile sexy", "Lo que diga Ángel", "Dar instagram", "Reto sorpresa", "Piquito con Ibético"];
+        let choices = ["Chupito!", "Perreo intenso", "Pose de Yoga", "Baile sexy", "Lo que diga Ángel", "Dar instagram", "Reto sorpresa", "Piquito con Ibético"];
         let startAngle = 0;
         let arc = Math.PI / (choices.length / 2);
         let spinTimeout = null;
@@ -283,7 +283,7 @@
             if (userChoices.length > 1) {
                 choices = userChoices;
             } else if (choicesInput.value.trim() === '') {
-                choices = ["Chupito!", "Canción de Mariachi", "Pose de Yoga", "Baile sexy", "Lo que diga Ángel", "Dar instagram", "Reto sorpresa", "Piquito con Ibético"];
+                choices = ["Chupito!", "Perreo intenso", "Pose de Yoga", "Baile sexy", "Lo que diga Ángel", "Dar instagram", "Reto sorpresa", "Piquito con Ibético"];
             } else {
                 alert("Introduce al menos dos opciones.");
                 return;
