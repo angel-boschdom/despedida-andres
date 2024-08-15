@@ -140,7 +140,7 @@
         const menu = document.querySelector('.menu');
         const dropdownContent = document.querySelector('.dropdown-content');
 
-        let choices = ["Chupito!", "Canción de Mariachi", "Pose de Yoga", "Comodín", "Lo que diga Ángel", "Instagram a una chica", "Reto sorpresa"];
+        let choices = ["Chupito!", "Canción de Mariachi", "Pose de Yoga", "Baile sexy", "Lo que diga Ángel", "Dar instagram", "Reto sorpresa", "Piquito con Ibético"];
         let startAngle = 0;
         let arc = Math.PI / (choices.length / 2);
         let spinTimeout = null;
@@ -199,7 +199,7 @@
         }
 
         function getColor(item, maxItem) {
-            const colors = ["#E74C3C", "#F39C12", "#2ECC71", "#9B59B6", "#3498DB", "#1ABC9C", "#F1C40F"];
+            const colors = ["#E74C3C", "#F39C12", "#2ECC71", "#9B59B6", "#3498DB", "#1ABC9C", "#F1C40F", "#2ECC71"];
             return colors[item % colors.length];
         }
 
@@ -283,7 +283,7 @@
             if (userChoices.length > 1) {
                 choices = userChoices;
             } else if (choicesInput.value.trim() === '') {
-                choices = ["Chupito!", "Canción de Mariachi", "Pose de Yoga", "Comodín", "Lo que diga Ángel", "Instagram a una chica", "Reto sorpresa"];
+                choices = ["Chupito!", "Canción de Mariachi", "Pose de Yoga", "Baile sexy", "Lo que diga Ángel", "Dar instagram", "Reto sorpresa", "Piquito con Ibético"];
             } else {
                 alert("Introduce al menos dos opciones.");
                 return;
