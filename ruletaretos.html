@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Despedida de Roger</title>
+    <title>Dani Cumple 30!</title>
     <style>
         body {
             display: flex;
@@ -114,16 +114,16 @@
         </div>
         <div class="dropdown-content">
             <a href="./index.html">Home Page</a>
-            <a href="./aboutandres.html">Quién es Andrés?</a>
-            <a href="./aboutwedding.html">Por qué se casa?</a>
-            <a href="./aboutteam.html">Equipo despedida</a>
+            <a href="./aboutandres.html">Quién es Dani?</a>
+            <a href="./aboutwedding.html">Por qué cumple 30?</a>
+            <a href="./aboutteam.html">Equipo cumple</a>
             <a href="./ruletaretos.html">Ruleta de retos!</a>
             <a href="./shop.html">Tienda</a>
         </div>
     </div>
 
-    <h1>Despedida de Roger!</h1>
-    <img src="./assets/IMG_2974.jpeg" alt="Andrés">
+    <h1>Dani Cumple 30!</h1>
+    <img src="./assets/dani.pmg" alt="Dani">
 
     <canvas id="wheelCanvas" width="400" height="400"></canvas>
 
@@ -140,7 +140,7 @@
         const menu = document.querySelector('.menu');
         const dropdownContent = document.querySelector('.dropdown-content');
 
-        let choices = ["Chupito!", "Perreo intenso", "Pose de Yoga", "Baile sexy", "Lo que diga Ángel", "Dar instagram", "Reto sorpresa", "Piquito con Ibético"];
+        let choices = ["Chupito!", "Perreo intenso", "Cantar Viva España", "Baile sexy", "Lo que diga Ángel", "Dar instagram", "Reto sorpresa", "Piquito con Ibético"];
         let startAngle = 0;
         let arc = Math.PI / (choices.length / 2);
         let spinTimeout = null;
@@ -283,7 +283,7 @@
             if (userChoices.length > 1) {
                 choices = userChoices;
             } else if (choicesInput.value.trim() === '') {
-                choices = ["Chupito!", "Perreo intenso", "Pose de Yoga", "Baile sexy", "Lo que diga Ángel", "Dar instagram", "Reto sorpresa", "Piquito con Ibético"];
+                choices = ["Chupito!", "Perreo intenso", "Cantar Viva España", "Baile sexy", "Lo que diga Ángel", "Dar instagram", "Reto sorpresa", "Piquito con Ibético"];
             } else {
                 alert("Introduce al menos dos opciones.");
                 return;
